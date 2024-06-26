@@ -34,16 +34,23 @@ const CakeContainer = () => {
         //might have to change it to cake.rating
       }
 
-      
+      //need something to update the total price when it changes in the cake component
+
+      const handleSoldCake = (cakePrice) => {
+        setTotalProfit(prevProfit => prevProfit + cakePrice);
+      }
+
+
+
 
       return (
         <>
         <h1>The BNTA Bakery</h1>
         <h2>Average Cake Rating: {calcAverageRating()}</h2>
         <p>Total Profit: £{totalProfit}</p>
-        <Cake cake = {bakeryCakes[0]}/>
-        <Cake cake = {bakeryCakes[1]}/>
-        <Cake cake = {bakeryCakes[2]}/>
+        <Cake cake = {bakeryCakes[0]} soldCake={handleSoldCake}/>
+        <Cake cake = {bakeryCakes[1]} soldCake={handleSoldCake}/>
+        <Cake cake = {bakeryCakes[2]} soldCake={handleSoldCake}/>
         </>
       );
 }
